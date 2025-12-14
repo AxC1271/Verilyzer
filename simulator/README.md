@@ -2,19 +2,16 @@
 
 ## Problem Statement
 
-Write a simulation program that reads the intermediate file generated in part 1 and stores the gates into an array of record. In each record, dynamically allocate integer arrays to store the fanin and fanout for each gate. Create an extra gate structure and store the index in variable 'dummy_gate'.
+Write a simulation program that reads the intermediate file generated in Part 1 and stores the gates into an array of records. In each record, dynamically allocate integer arrays to store the fanin and fanout for each gate. Create an extra gate structure and store its index in the variable 'dummy_gate'.
 
-A. Add to every fate structure an int 'sched' and set that pointer initially to -1. This pointer should be used to schedule the corresponding gate.
+A. Add to every gate structure an int field called 'sched' and set it initially to -1. This field should be used to schedule the corresponding gate.
+B. Create an array 'levels' of pointers to gate structures of size 'max_level'. 'max_level' is an integer holding the value of the maximum level in your design. Initially, levels[i] is set to dummy_gate for all i.
+C. Use 3-valued logic {0, 1, X} to create two-input lookup tables for the following gates: AND, OR, XOR, and NOT. Gates with more than two inputs can be evaluated using more than one table lookup.
+D. To schedule events due to a change in the state of gate i:
 
-B. Create an array 'levels' of pointers to a gate structure of size 'max level'. 'max_level' is an integer holding the value of max level in your design. Initially, levels[i] is set to dummy_gate for all i's.
+For each gate f in the fanout list of gate i, if the 'sched' field of gate f is -1, then insert f at the head of the list at the corresponding level. Otherwise, no action is needed (schedule_fanout(gaten) in Figure P1).
 
-C. Use 3-valued logic {0, 1, X} to create two inputs lookup tables for the following gates AND, OR, XOR, and NOT. Gates with more than two inputs can be evaluated by more than one table lookup.
-
-D. To schedule events due to a change of the state of gate i:
-
-a. For each gate f in the fanout list of gate i, if the field 'sched' of gate f is -1, then insert f at the head of the list at the corresponding level. Otherwise, no action is needed (schedule_fanout(gaten) in Figure P1).
-
-E. Implement the algorithm shown in Figure P1. In this algorithm, Flip-Flop do not need to be scheduled:
+E. Implement the algorithm shown in Figure P1. Note that flip-flops do not need to be scheduled in this algorithm.
 
 <p align="center">
     <img src="./simulation_flow.png" />
@@ -27,8 +24,7 @@ E. Implement the algorithm shown in Figure P1. In this algorithm, Flip-Flop do n
 <p align="center">
     <img src="./table_lookup.png" />
 </p>
-
-Record the CPU time your program requires to run both examples circuit posted on the website using the input scanning and table-lookup. Compare the two techniques.
+Record the CPU time your program requires to run both example circuits posted on the website using input scanning and table-lookup methods. Compare the two techniques. The output should look like the following:
 
 The output should look like the following:
 <p align="center">
