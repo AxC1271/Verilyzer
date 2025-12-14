@@ -21,14 +21,14 @@ typedef enum {
 } GateType;
 
 // struct to hold a list of integers (for fanins/fanouts)
-typedef struct {
+typedef struct IntList {
     int *items;
     int count;
     int capacity;
 } IntList;
 
 // struct for a gate
-typedef struct {
+typedef struct Gate {
     int id;
     char *name;              
     char *output_wire;      
@@ -40,7 +40,7 @@ typedef struct {
 } Gate;
 
 // circuit struct
-typedef struct {
+typedef struct Circuit {
     Gate *gates;
     int gate_count;
     int gate_capacity;
@@ -68,5 +68,7 @@ void resolve_dff_connections(void);
 void init_intlist(IntList *list);
 void add_to_intlist(IntList *list, int value);
 void free_intlist(IntList *list);
+
+void connect_gates_to_output_wires(void);
 
 #endif
