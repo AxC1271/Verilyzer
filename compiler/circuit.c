@@ -301,3 +301,20 @@ void free_circuit(void) {
     
     init_circuit();
 }
+
+void connect_gates_to_output_wires(void) {
+    for (int i = 0; i < circuit.gate_count; i++) {
+        Gate *g = &circuit.gates[i];
+        
+        if (!g->output_wire || g->type == GATE_INPUT || g->type == GATE_DFF) {
+            continue;
+        }
+        
+        int wire_id = find_gate_by_name(g->output_wire);
+        
+        if (wire_id >= 0 && wire_id != i && circuit.gates[wire_id].type == GATE_WIRE) {
+            add_to_intlist(&g->fanouts, wire_id);
+            add_to_intlist(&circuit.gates[wire_id].fanins, i);
+        }
+    }
+}
