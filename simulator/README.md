@@ -1,10 +1,4 @@
-# ECSE 318 Lab 6
-
-To properly view the README files, open this folder in VSCode and `Ctrl + Shift + V` for Windows or `Cmd + Shift + V` 
-for Mac devices for better visuals and cleaner markdown formatting. It'll look prettier, I promise 😀. 
-
-The due date of this lab is on December 14th, 2025.
-
+# Simulator
 
 ## Problem Statement
 
