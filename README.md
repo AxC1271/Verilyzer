@@ -2,6 +2,9 @@
 
 ## Problem Statement
 
+### Part 1
+
+### Part 2
 Write a simulation program that reads the intermediate file generated in part 1 and stores the gates into an array of record. In each record, dynamically allocate integer arrays to store the fanin and fanout for each gate. Create an extra gate structure and store the index in variable 'dummy_gate'.
 
 A. Add to every fate structure an int 'sched' and set that pointer initially to -1. This pointer should be used to schedule the corresponding gate.
