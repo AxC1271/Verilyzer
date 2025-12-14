@@ -13,7 +13,7 @@ Write a computer program (in C or C++) that reads in the circuit description as 
 For every gate in the circuit, we associate a 'level'. The gate 'level' indicates the distance of that gate from primary inputs or pseudo-inputs (D flip-flop Q outputs). Initially, the level of primary inputs and DFF flip-flops is set to zero. Gate levels for other gates are set to negative values, indicating uninitialized values. Then, the gate level (for gates with assigned positive values on all of its inputs) is equal to the maximum level of its inputs plus one. This step is repeated until every gate level is a positive number.
 
 Your program should print the following:
-a. For every level n, print the number of gates assigned to level n.
+a. For every level `n`, print the number of gates assigned to level n.
 b. Print a listing of the final stored circuit using an intermediate file format. The file consists of lines, where each line represents a gate in the circuit. On the first line of the file, print the number of gates, the number of inputs, the number of outputs, and the number of flip-flops.
 
 ### Part 2: Simulator
